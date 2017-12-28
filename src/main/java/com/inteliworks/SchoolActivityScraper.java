@@ -32,7 +32,7 @@ public class SchoolActivityScraper {
         String wantedRow = rows.get(1).text();
 
         parse(wantedRow);
-
+       System.out.println(getEventInfo("December"));
 
     }
 
@@ -84,7 +84,7 @@ public class SchoolActivityScraper {
         jsonObject = new JSONObject();
 
         jsonObject.put("event", "Month of Giving");
-        jsonObject.put("when", "Entire Month of December");
+        jsonObject.put("when", "Month of December");
         jsonArray.put(jsonObject);
 
         jsonObject = new JSONObject();
@@ -169,7 +169,6 @@ public class SchoolActivityScraper {
             String when = o.getString("when");
             if (when != null && when.equalsIgnoreCase(info))
                 return o;
-
         }
         return null;
     }
