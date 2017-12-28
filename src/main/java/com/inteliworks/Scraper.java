@@ -92,4 +92,4 @@ public class Scraper {
             return ja;
         }
     }
-}
+
