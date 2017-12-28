@@ -88,4 +88,8 @@ public class Scraper {
 		}
 		return null;
 	}
+	public static JSONArray getJSONArrayStaff(){
+            return ja;
+        }
+    }
 }
