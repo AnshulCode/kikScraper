@@ -32,7 +32,7 @@ public class SchoolActivityScraper {
         String wantedRow = rows.get(1).text();
 
         parse(wantedRow);
-       System.out.println(getEventInfo("December"));
+       System.out.println(getEventInfo( ""));
 
     }
 
@@ -156,20 +156,22 @@ public class SchoolActivityScraper {
         return jsonArray.toString();
     }
 
-    public static JSONObject getEventInfo(String info) {
+    public static JSONArray getEventInfo( String month) {
         int aLength = jsonArray.length();
-        info = info;
+        JSONArray ja = new JSONArray();
+
+
         JSONObject o = null;
         for (int i = 0; i < aLength; i++) {
             o = (JSONObject) jsonArray.get(i);
-            //System.out.println(o.toString());
-            String event = o.getString("event");
-            if (event != null && event.equalsIgnoreCase(info))
-                return o;
             String when = o.getString("when");
-            if (when != null && when.equalsIgnoreCase(info))
-                return o;
+            if (when != null && when.startsWith(month))
+                ja.put(o);
+
         }
-        return null;
+        return ja;
+    }
+    public static JSONArray getJSONArrayActivity(){
+        return jsonArray;
     }
 }
